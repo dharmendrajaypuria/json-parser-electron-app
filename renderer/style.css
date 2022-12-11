@@ -1,0 +1,11 @@
+.center {
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    border: 2px solid;
+    outline: none;
+    overflow: auto;
+}
