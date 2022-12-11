@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV !== 'development'
 const createWindow = () => {
     const mainWindow = new BrowserWindow({
         title: 'Json Parser',
-        width: isDev ? 600 : 600,
+        width: isDev ? 800 : 600,
         height: 400,
         autoHideMenuBar: true,
         maximizable: false,
