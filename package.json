@@ -1,0 +1,14 @@
+{
+  "name": "json-parser-electron-app",
+  "version": "1.0.0",
+  "description": "json to csv converter",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Dharmendra Jaypuria",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^22.0.0"
+  }
+}
