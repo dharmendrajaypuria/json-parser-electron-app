@@ -18,7 +18,6 @@ function convert(e) {
     try {
         const jsonText = JSON.parse(textArea.value)
         if ( Array.isArray(jsonText)) {
-            console.log(jsonText.length, Object.keys(jsonText[0]).length)
             var headers = prepareColumns(jsonText[0])
             var columns = Object.keys(jsonText[0]).join(",")
             jsonText.forEach(json => {
@@ -28,19 +27,18 @@ function convert(e) {
             records.push(columns)
             for (let i = 0; i < jsonText.length; i++) {
                 var row = new Array()
-                headers.forEach(data => {row.push(data[i])})
+                populateRow(headers, i, row)
                 records.push(row.join(","))
             }
             saveToFile(records)
         } else {
-            console.log(Object.keys(jsonText))
             var headers = prepareColumns(jsonText)
             var columns = Object.keys(jsonText).join(",")
             populateHeaderData(headers, jsonText)
             var records = new Array();
             records.push(columns)
             var row = new Array()
-            headers.forEach(data => {row.push(data[0])})
+            populateRow(headers, 0, row)
             records.push(row.join(","))
             saveToFile(records)
         }
@@ -49,6 +47,15 @@ function convert(e) {
         alert( 'Unable to parse')
     }
     
+}
+
+function populateRow(headers, i, row) {
+    headers.forEach(data => {
+        if("object" === typeof data [i]) {
+            data[i] = ""
+        }
+        row.push(data[i])
+    }) 
 }
 
 function prepareColumns(jsonRow) {
